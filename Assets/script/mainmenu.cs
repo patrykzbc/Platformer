@@ -1,16 +1,17 @@
-using UnityEngine;
+  using System;
+  using UnityEngine;
+  using UnityEngine.SceneManagement;
 
-public class NewMonoBehaviourScript : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+  public class MainMenu : MonoBehaviour
+  {
+      public void StartGame(int id)
+      {
+          SceneManager.LoadScene(id);
+      }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+      public void ExitGame()
+      {
+          Application.Quit();
+      }
+
+  }
