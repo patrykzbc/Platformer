@@ -34,11 +34,11 @@ public class PlayerMovement : MonoBehaviour
         actions.Player.Move.performed -= Movement;
         actions.Player.Jump.performed -= Jumping;
     }
-    void Movement(InputAction.CallbackContext ctx)
+    public void Movement(InputAction.CallbackContext ctx)
     {
         move = ctx.ReadValue<Vector2>().x;
     }
-    void Jumping(InputAction.CallbackContext ctx)
+    public void Jumping(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
