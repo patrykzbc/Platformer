@@ -47,7 +47,6 @@ public class PlayerMovement2 : MonoBehaviour
         if (context.performed && coyoteTimeCounter > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
-            coyoteTimeCounter = 0f;
         }
 
         if (context.canceled && rb.linearVelocity.y > 0f)
