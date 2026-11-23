@@ -9,7 +9,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 8f;
+    private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
     private float coyoteTime = 0.2f;
