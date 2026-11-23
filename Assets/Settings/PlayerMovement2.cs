@@ -14,6 +14,13 @@ public class PlayerMovement2 : MonoBehaviour
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
+      private Animator animator;
+
+
+      void Start()
+      {
+          animator = GetComponent<Animator>();
+      }
 
     void Update()
     {
@@ -35,11 +42,24 @@ public class PlayerMovement2 : MonoBehaviour
         {
             Flip();
         }
+        {
+            
+            
+        }
     }
+    
 
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+        
+        if (IsGrounded())
+        {
+            animator.SetBool("Jumped", false);
+        }
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
+        animator.SetFloat("VerticalSpeed" , rb.linearVelocity.y);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -47,6 +67,7 @@ public class PlayerMovement2 : MonoBehaviour
         if (context.performed && coyoteTimeCounter > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
+            animator.SetBool("Jumped" ,true);
         }
 
         if (context.canceled && rb.linearVelocity.y > 0f)
