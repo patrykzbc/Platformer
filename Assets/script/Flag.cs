@@ -9,8 +9,8 @@ public class Flag : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Time.timeScale = 0;
             winUI.SetActive(true); 
+            Time.timeScale = 0;
         }
     }
 
